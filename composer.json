@@ -1,0 +1,6 @@
+{
+    "name": "markopoikkimaki/my-wp-cron-test",
+    "require": {
+        "fzaninotto/faker": "^1.7"
+    }
+}
