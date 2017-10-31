@@ -22,13 +22,17 @@ function do_this_hourly_todo() {
 
    //     file_put_contents('run.txt', 'run'. date('Y-m-d H:i:s'));
 
-        wp_insert_post([
+        $postId =  wp_insert_post([
             'post_title' => $faker->sentence,
             'post_content' => $faker->text,
             'post_author' => $faker->name,
             'post_type' => 'todos',
             'post_status' => 'publish'
         ]);
+
+        if($postId > 0) {
+            update_field('address', $faker->address, $postId);
+        }
     }
 }
 add_action(TODOS_EVENT, 'do_this_hourly_todo');
